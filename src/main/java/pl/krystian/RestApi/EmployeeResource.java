@@ -1,14 +1,9 @@
 package pl.krystian.RestApi;
 
-import java.util.ArrayList;
-
-import com.google.gson.Gson;
-
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
 
 @Path("employee")
 public class EmployeeResource {
@@ -17,18 +12,9 @@ public class EmployeeResource {
 	@Produces(MediaType.APPLICATION_JSON)
 	public String getEmployee() {
 		
-		Employee emp;
-		ArrayList<Employee> emps = new ArrayList<Employee>();
+		EmployeeRepository employeeRepository = new EmployeeRepository();
+		ObjectToJSONConverter objectToJSONConverter = new ObjectToJSONConverter();
 		
-		for (int i = 0; i <=1000; i ++) {
-			emp = new Employee();
-			emp.setfName("Krystian" + i);
-			emp.setlName("Izdebski" + i);
-			emp.setAge(i);
-			emps.add(emp);
-		}
-		
-		Gson gson = new Gson();
-		return gson.toJson(emps);
+		return objectToJSONConverter.convertToJSON(employeeRepository.getEmployees());
 	}
 }

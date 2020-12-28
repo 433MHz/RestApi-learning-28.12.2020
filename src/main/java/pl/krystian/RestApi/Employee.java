@@ -4,10 +4,13 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Employee {
-	 String fName;
-	 String lName;
-	 int age;
-	
+	private int id;
+	private String fName;
+	private String lName;
+	private int age;
+	public int getId() {
+		return id;
+	}
 	public String getfName() {
 		return fName;
 	}
@@ -16,6 +19,9 @@ public class Employee {
 	}
 	public int getAge() {
 		return age;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	public void setfName(String fName) {
 		this.fName = fName;
@@ -27,5 +33,6 @@ public class Employee {
 		this.age = age;
 	}
 	
+
 	
 }
