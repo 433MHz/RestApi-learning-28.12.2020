@@ -21,16 +21,17 @@ public class EmployeeResource {
 		EmployeeRepository employeeRepository = new EmployeeRepository();
 		ObjectToJSONConverter objectToJSONConverter = new ObjectToJSONConverter();
 		
-		return objectToJSONConverter.convertToJSON(employeeRepository.getEmployees());
+		return objectToJSONConverter.convertToJSON(employeeRepository.getEmployee());
 	}
 	
 	@POST
 	@Path("add")
-	public void addEmployee(String emp) {
+	public String addEmployee(String emp) {
 		Gson gson = new Gson();
 		Employee employee = gson.fromJson(emp, Employee.class);
 		
-		System.out.println("id: " + employee.getId() + " first name:" + employee.getfName() + " last name:" + employee.getlName() + " age:" + employee.getAge());
+		System.out.println("id:" + employee.getId() + " | first name:" + employee.getfName() + " |  last name:" + employee.getlName() + " | age:" + employee.getAge());
 	
+		return "Otrzymano";
 	}
 }

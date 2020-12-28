@@ -14,15 +14,14 @@ public class EmployeeRepository {
 		return employees;
 	}
 	
-	public Employee getEmployee(int id) {
+	public Employee getEmployee() {
 		
-		for(Employee emp : employees) {
-			if(emp.getId() == id)
-			{
-				return emp;
-			}
-		}
-		return null;
+		Employee emp = new Employee();
+		emp.setId(101);
+		emp.setfName("Krystian");
+		emp.setlName("Izdebski");
+		emp.setAge(21);
+		return emp;
 	}
 	
 	
